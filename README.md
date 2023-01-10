@@ -41,10 +41,10 @@ If you are hosting frontend code somewhere without using DFX, you may need to ma
 
 ## Useful commands
 
-Check on-chain balance: `dfx wallet --network=ic balance`
-Get principal ID: `dfx identity get-principal`
-Get ledger ID: `dfx ledger account-id`
-Get on-chain wallet ID: `dfx identity --network=ic get-wallet`
+* Check on-chain balance: `dfx wallet --network=ic balance`
+* Get principal ID: `dfx identity get-principal`
+* Get ledger ID: `dfx ledger account-id`
+* Get on-chain wallet ID: `dfx identity --network=ic get-wallet`
 
 # Resources
 
