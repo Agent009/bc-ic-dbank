@@ -1,16 +1,4 @@
-# hello / dbank
-
-Contains code for creating the standard `hello` canister, as well as a very simple `dbank` app which allows users to deposit and withdraw funds, with the funds accruing interest over time.
-
-## hello
-
-See `src/hello_backend` and `src/hello_frontend`.
-Based on the [official tutorial](https://internetcomputer.org/docs/current/developer-docs/quickstart/hello10mins).
-Contains a single canister callable function called `greet`.
-
-On-chain UI: None, replaced with the dbank canister for testing purposes and don't want to re-deploy again as it will waste cycles unnecessary.
-
-## dbank
+# dbank
 
 Very simple bank interface which allows users to deposit and withdraw funds.
 The funds accrue interest over time, but the compound is only calculated when the funds are deposited / withdrawn.
