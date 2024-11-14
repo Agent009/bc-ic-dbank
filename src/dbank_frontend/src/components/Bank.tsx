@@ -44,7 +44,7 @@ function Bank() {
     const update = async () => {
         const currentAmount = await dbank_backend.checkBalance();
         const newBalance = Math.round(currentAmount * 100) / 100;
-        console.log("Bank -> update -> currentAmount" + currentAmount, "newBalance", newBalance);
+        console.log("Bank -> update -> newBalance", newBalance);
         setBalance(newBalance);
         console.log("Bank -> update -> balance updated");
     };
