@@ -1,5 +1,4 @@
 {
-  "dfx": "0.12.1",
   "canisters": {
     "dbank_backend": {
       "main": "src/dbank_backend/main.mo",
@@ -9,14 +8,11 @@
       "dependencies": [
         "dbank_backend"
       ],
-      "frontend": {
-        "entrypoint": "src/dbank_frontend/src/index.html"
-      },
       "source": [
-        "src/dbank_frontend/assets",
-        "dist/dbank_frontend/"
+        "src/dbank_frontend/dist"
       ],
-      "type": "assets"
+      "type": "assets",
+      "workspace": "dbank_frontend"
     }
   },
   "defaults": {
@@ -25,5 +21,6 @@
       "packtool": ""
     }
   },
+  "output_env_file": ".env",
   "version": 1
 }

@@ -17,14 +17,13 @@ actor DBank {
   // Assign a constant value that cannot be changed later on.
   // let id = 2000;
   stable var startTime = Time.now();
-  Debug.print(debug_show(startTime));
-  Debug.print(debug_show(currentValue));
-  // Debug.print(debug_show(currentValue));
+  Debug.print(debug_show("startTime", startTime));
+  Debug.print(debug_show("currentValue", currentValue));
 
   // dfx canister call dbank topUp
   public func topUp(amount: Float) {
     currentValue += amount;
-    Debug.print(debug_show(currentValue));
+    Debug.print(debug_show("topUp -> currentValue ->", currentValue));
   };
 
   public func withdraw(amount: Float) {
@@ -32,15 +31,15 @@ actor DBank {
 
     if (tempVal >= 0) {
       currentValue -= amount;
-      Debug.print(debug_show(currentValue));
+      Debug.print(debug_show("withdraw -> currentValue ->", currentValue));
     } else {
-      Debug.print("Specified amount cannot be subtracted as it's more than the current value.");
+      Debug.print("withdraw -> specified amount cannot be subtracted as it's more than the current value.");
     }
   };
 
   public query func checkBalance(): async Float {
+    Debug.print(debug_show("checkBalance -> currentValue", currentValue));
     return currentValue;
-    // Debug.print(debug_show (currentValue));
   };
 
   //topUp();
@@ -48,11 +47,12 @@ actor DBank {
   public func compound() {
     let currentTime = Time.now();
     let timeElapsedNS = currentTime - startTime;
-    let timeElapsedS = timeElapsedNS / 1000000000;
+    // let timeElapsedS = timeElapsedNS / 1000000000;
     let timeElapsedM = timeElapsedNS / 1000000000 / 60;
     let interestRate = 0.01;
     // Calculate compound interest
     currentValue := (currentValue * ((1 + interestRate) ** Float.fromInt(timeElapsedM)));
     startTime := currentTime;
+    Debug.print(debug_show("compound -> currentValue", currentValue, "interestRate", interestRate, "timeElapsedM", timeElapsedM));
   };
 };
